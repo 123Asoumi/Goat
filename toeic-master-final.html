@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TOEIC Master - La Réussite Assurée</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1E40AF;
+            --secondary: #10B981;
+            --accent: #DBEAFE;
+            --bg: #FFFFFF;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #F0F9FF;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .btn-primary { @apply bg-[#1E40AF] text-white font-bold py-4 rounded-2xl shadow-lg active:scale-95 transition-all; }
+        .btn-secondary { @apply bg-[#10B981] text-white font-bold py-4 rounded-2xl shadow-lg active:scale-95 transition-all; }
+        .glass-card { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border: 1px solid #E0F2FE; }
+        .progress-bar { transition: width 0.5s ease-in-out; }
+        .mascot-bounce { animation: bounce 2s infinite; }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .hidden { display: none !important; }
+        .mascot-img { width: 100%; height: 100%; object-fit: contain; }
+        .gradient-text { background: linear-gradient(135deg, #1E40AF, #10B981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header (Caché sur la landing page) -->
+    <header id="main-header" class="hidden bg-white border-b border-blue-100 px-4 py-4 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-md mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white text-xl font-black shadow-blue-200 shadow-lg">T</div>
+                <div>
+                    <h1 class="font-extrabold text-blue-900 leading-none">TOEIC Master</h1>
+                    <span class="text-[10px] font-bold text-green-600 uppercase tracking-widest">Premium Edition</span>
+                </div>
+            </div>
+            <div id="header-stats" class="flex items-center gap-2">
+                <button id="btn-music" class="p-2 text-blue-400 hover:text-blue-600 transition-colors">
+                    <svg id="icon-music-on" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                    </svg>
+                    <svg id="icon-music-off" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+                    </svg>
+                </button>
+                <div class="bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
+                    <span id="timer-display" class="text-sm font-bold text-blue-700">00:30</span>
+                </div>
+                <button id="btn-home" class="p-2 text-blue-400 hover:text-blue-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow p-4 max-w-md mx-auto w-full pb-32">
+        
+        <!-- Landing Page -->
+        <div id="view-landing" class="flex flex-col items-center justify-center min-h-[80vh] space-y-10 py-10 text-center">
+            <div class="relative">
+                <div class="w-48 h-48 bg-white rounded-full flex items-center justify-center mx-auto mascot-bounce shadow-2xl border-4 border-blue-100 overflow-hidden p-4">
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/120684292/JZPZCNcoXAylLMIZ.png" alt="Mascotte Lama" class="mascot-img">
+                </div>
+                <div class="absolute -bottom-4 -right-4 bg-green-500 text-white font-black px-4 py-2 rounded-2xl shadow-lg rotate-12">GOAT 🐐</div>
+            </div>
+
+            <div class="space-y-6">
+                <h2 class="text-4xl font-black text-blue-900 leading-tight">
+                    T'inquiète tu va pas regretter ton choix!! <br>
+                    <span class="gradient-text">forcer tu va valider</span>
+                </h2>
+                <p class="text-slate-500 font-semibold px-4">
+                    L'outil ultime pour exploser ton score au TOEIC avec la méthode du Goat.
+                </p>
+            </div>
+
+            <div class="w-full space-y-4">
+                <button id="btn-go-intro" class="w-full btn-primary text-xl py-5">C'EST PARTI ! 🚀</button>
+                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Rejoint les futurs certifiés</p>
+            </div>
+        </div>
+
+        <!-- Page de Présentation (Onboarding) -->
+        <div id="view-intro" class="hidden space-y-8 py-6">
+            <div class="text-center space-y-4">
+                <div class="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center mx-auto mascot-bounce overflow-hidden p-2">
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/120684292/JZPZCNcoXAylLMIZ.png" alt="Mascotte Lama" class="mascot-img">
+                </div>
+                <h2 class="text-3xl font-black text-blue-900">Comment ça marche ?</h2>
+                <p class="text-slate-500 font-medium">Quelques règles avant de valider ton test.</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="glass-card p-5 rounded-3xl flex gap-4 items-start">
+                    <div class="w-10 h-10 bg-blue-600 rounded-xl flex-shrink-0 flex items-center justify-center text-white font-bold">1</div>
+                    <div>
+                        <h4 class="font-bold text-blue-900">4 Niveaux de Difficulté</h4>
+                        <p class="text-xs text-slate-500">Débloque les niveaux en obtenant au moins 7/10. Vise le niveau Expert !</p>
+                    </div>
+                </div>
+                <div class="glass-card p-5 rounded-3xl flex gap-4 items-start">
+                    <div class="w-10 h-10 bg-green-500 rounded-xl flex-shrink-0 flex items-center justify-center text-white font-bold">2</div>
+                    <div>
+                        <h4 class="font-bold text-blue-900">30 Secondes Chrono</h4>
+                        <p class="text-xs text-slate-500">Ne traîne pas ! C'est le temps réel pour chaque question de la Part 5.</p>
+                    </div>
+                </div>
+                <div class="glass-card p-5 rounded-3xl flex gap-4 items-start">
+                    <div class="w-10 h-10 bg-indigo-500 rounded-xl flex-shrink-0 flex items-center justify-center text-white font-bold">3</div>
+                    <div>
+                        <h4 class="font-bold text-blue-900">Explications Premium</h4>
+                        <p class="text-xs text-slate-500">Comprends tes erreurs avec nos fiches pédagogiques détaillées.</p>
+                    </div>
+                </div>
+            </div>
+
+            <button id="btn-start-app" class="w-full btn-primary">J'ai compris, je valide !</button>
+        </div>
+
+        <!-- Menu Principal -->
+        <div id="view-menu" class="hidden space-y-8 py-6">
+            <div class="text-center space-y-4">
+                <div class="relative inline-block">
+                    <div class="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center mx-auto overflow-hidden p-2">
+                        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/120684292/JZPZCNcoXAylLMIZ.png" alt="Mascotte Lama" class="mascot-img">
+                    </div>
+                </div>
+                <div class="space-y-1">
+                    <h2 class="text-2xl font-black text-blue-900">Ton Parcours</h2>
+                    <p class="text-slate-500 text-sm font-medium">Choisis ton niveau d'entraînement.</p>
+                </div>
+            </div>
+
+            <div class="grid gap-4" id="levels-container"></div>
+
+            <div class="bg-white rounded-3xl p-6 border-2 border-blue-50 shadow-xl shadow-blue-100/50">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center text-2xl">👨‍🏫</div>
+                    <div>
+                        <h3 class="font-bold text-blue-900">Mode Professeur</h3>
+                        <p class="text-xs text-slate-500">Toutes les règles expliquées</p>
+                    </div>
+                </div>
+                <button id="btn-teacher-mode" class="w-full bg-blue-50 text-blue-700 font-bold py-3 rounded-xl hover:bg-blue-100 transition-colors">
+                    Consulter les fiches de cours
+                </button>
+            </div>
+        </div>
+
+        <!-- Vue Quiz -->
+        <div id="view-quiz" class="hidden space-y-6">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <div class="w-10 h-10 bg-blue-50 rounded-full overflow-hidden p-1">
+                        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/120684292/JZPZCNcoXAylLMIZ.png" alt="Mascotte Lama" class="mascot-img">
+                    </div>
+                    <span id="level-title" class="text-sm font-black text-blue-900 uppercase tracking-tight">Niveau 1</span>
+                </div>
+                <span id="question-counter" class="text-xs font-bold text-blue-400 bg-blue-50 px-3 py-1 rounded-full">1/10</span>
+            </div>
+            
+            <div class="w-full bg-blue-50 h-3 rounded-full overflow-hidden border border-blue-100">
+                <div id="progress-bar" class="progress-bar bg-green-500 h-full w-0"></div>
+            </div>
+
+            <div class="bg-white rounded-[2.5rem] p-8 shadow-xl shadow-blue-100/20 border border-blue-50 min-h-[200px] flex items-center justify-center text-center relative">
+                <p id="question-text" class="text-xl font-bold text-blue-900 leading-relaxed"></p>
+            </div>
+
+            <div id="options-container" class="grid gap-3"></div>
+
+            <div id="feedback-container" class="hidden space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                <div id="feedback-card" class="rounded-3xl p-6 border-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div id="feedback-icon" class="w-10 h-10 rounded-2xl flex items-center justify-center text-white text-xl shadow-lg"></div>
+                        <h4 id="feedback-title" class="font-black text-lg"></h4>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-white/60 rounded-2xl p-4">
+                            <p class="text-xs font-black text-blue-900 uppercase mb-1 tracking-widest">💡 La Règle d'Or</p>
+                            <p id="feedback-explanation" class="text-sm text-slate-700 leading-relaxed"></p>
+                        </div>
+                        <div class="bg-blue-900 text-white rounded-2xl p-4">
+                            <p class="text-xs font-black text-blue-200 uppercase mb-1 tracking-widest">📝 Exemple Type</p>
+                            <p id="feedback-example" class="text-sm font-medium italic"></p>
+                        </div>
+                    </div>
+                </div>
+                <button id="btn-next" class="w-full btn-primary">Continuer l'ascension →</button>
+            </div>
+        </div>
+
+        <!-- Vue Résultats -->
+        <div id="view-results" class="hidden text-center space-y-8 py-8">
+            <div class="w-32 h-32 bg-blue-100 rounded-full flex items-center justify-center mx-auto overflow-hidden p-2">
+                <img src="https://files.manuscdn.com/user_upload_by_module/session_file/120684292/JZPZCNcoXAylLMIZ.png" alt="Mascotte Lama" class="mascot-img">
+            </div>
+            <div class="space-y-2">
+                <h2 id="result-title" class="text-3xl font-black text-blue-900">Score Final</h2>
+                <div class="text-6xl font-black text-green-500" id="result-score">0/10</div>
+            </div>
+            <p id="result-text" class="text-slate-500 font-medium px-6"></p>
+            <div class="grid gap-3 px-4">
+                <button id="btn-retry" class="btn-secondary">Relever le défi à nouveau</button>
+                <button id="btn-back-menu" class="w-full bg-white text-blue-900 font-bold py-4 rounded-2xl border-2 border-blue-100">Retour au Campus</button>
+            </div>
+        </div>
+
+        <!-- Vue Professeur -->
+        <div id="view-teacher" class="hidden space-y-6 py-4">
+            <div class="flex items-center justify-between sticky top-20 bg-[#F0F9FF] py-2 z-10">
+                <h2 class="text-2xl font-black text-blue-900">Bibliothèque de Cours</h2>
+                <button id="btn-close-teacher" class="bg-blue-100 text-blue-700 px-4 py-2 rounded-xl font-bold text-sm">Fermer</button>
+            </div>
+            <div class="space-y-4" id="teacher-list"></div>
+        </div>
+
+    </main>
+
+    <!-- Bandeau Informatif -->
+    <footer class="fixed bottom-0 left-0 right-0 bg-gradient-to-r from-blue-900 to-blue-800 p-5 shadow-2xl z-[100] border-t-4 border-green-500">
+        <div class="max-w-md mx-auto text-center space-y-1">
+            <p class="text-white font-black text-sm">🚀 BOOSTE TA RÉUSSITE AU TOEIC !</p>
+            <p class="text-blue-100 text-[11px] font-medium leading-tight">
+                Pour du contenu plus exclusif et 100% de validation, soyez prêt à payer <span class="text-green-400 font-bold">1000 XOF</span>. 
+                <br><span class="text-white underline decoration-green-500 underline-offset-4">Contactez-moi pour débloquer votre accès complet !</span>
+            </p>
+        </div>
+    </footer>
+
+    <audio id="snd-correct" src="https://assets.mixkit.co/active_storage/sfx/2000/2000-preview.mp3"></audio>
+    <audio id="snd-wrong" src="https://assets.mixkit.co/active_storage/sfx/2019/2019-preview.mp3"></audio>
+    <audio id="snd-bg" src="https://assets.mixkit.co/active_storage/sfx/123/123-preview.mp3" loop></audio>
+
+    <script>
+        const questions = [
+            {id:101, q:"Ms. Walters ___ to another branch, so your new financial advisor will be Mr. Merenda.", options:{A:"transfer",B:"transferring",C:"has transferred",D:"transferable"}, answer:"C", topic:"Present Perfect", hint:"Mme Walters a été mutée dans une autre agence.", explanation:"On utilise le Present Perfect (has + participe passé) pour une action passée qui a une conséquence directe sur le présent (le changement de conseiller).", example:"He has lost his keys, so he can't enter the house."},
+            {id:102, q:"The restaurant on Main Street offers a wide selection of gourmet desserts ___ several regions of the world.", options:{A:"with",B:"by",C:"from",D:"until"}, answer:"C", topic:"Prépositions d'Origine", hint:"Le restaurant propose des desserts venant de plusieurs régions du monde.", explanation:"La préposition 'from' indique la provenance ou l'origine géographique d'un produit ou d'une personne.", example:"This wine is imported from France."},
+            {id:103, q:"___ interested in viewing an apartment should contact the property manager to arrange an appointment.", options:{A:"These",B:"Those",C:"This",D:"That"}, answer:"B", topic:"Pronoms Démonstratifs", hint:"Ceux qui souhaitent visiter un appartement doivent contacter le gestionnaire.", explanation:"'Those' est utilisé pour désigner un groupe de personnes non spécifiées suivi d'un participe ou d'une proposition relative.", example:"Those who arrive late will not be admitted."},
+            {id:104, q:"A growing ___ in the cosmetics industry is the use of natural and organic ingredients.", options:{A:"product",B:"scent",C:"sale",D:"trend"}, answer:"D", topic:"Vocabulaire Business", hint:"Une tendance croissante dans l’industrie cosmétique…", explanation:"'Trend' désigne une tendance ou une évolution générale dans un secteur d'activité.", example:"The current trend is towards remote working."},
+            {id:105, q:"The board of directors will ___ the new budget proposal at the meeting next week.", options:{A:"discuss",B:"discussion",C:"discussing",D:"discussed"}, answer:"A", topic:"Futur Simple", hint:"Le conseil d'administration discutera de la nouvelle proposition de budget.", explanation:"Après l'auxiliaire modal 'will', on utilise toujours la base verbale (l'infinitif sans 'to').", example:"We will finish the report tomorrow."},
+            {id:106, q:"The park service asks visitors to behave ___ and show respect for wildlife.", options:{A:"responsibly",B:"responsible",C:"responsibility",D:"responsibilities"}, answer:"A", topic:"Adverbes de Manière", hint:"Le service des parcs demande aux visiteurs de se comporter de manière responsable.", explanation:"Pour modifier un verbe d'action (behave), on utilise un adverbe (se terminant souvent par -ly) et non un adjectif.", example:"Please drive carefully on this road."},
+            {id:107, q:"It is not the company's policy to grant sick leave ___ overtime pay to part-time employees.", options:{A:"yet",B:"if",C:"but", d:"or"}, answer:"D", topic:"Conjonctions de Coordination", hint:"La société n’accorde ni congé maladie ni heures supplémentaires.", explanation:"Dans une structure négative (not...), on utilise 'or' pour lister plusieurs éléments exclus.", example:"I don't like tea or coffee."},
+            {id:108, q:"The ___ of the Board of Directors is scheduled for Monday.", options:{A:"election",B:"elected",C:"elects",D:"electable"}, answer:"A", topic:"Suffixes Nominaux", hint:"L’élection du conseil d’administration est prévue lundi.", explanation:"Le suffixe '-tion' transforme un verbe en nom. Après l'article 'The', on attend obligatoirement un nom.", example:"The production of the new car has started."},
+            {id:109, q:"Last year, the number of new university-level textbooks ___ by American publishers dropped for the second year in a row.", options:{A:"priced",B:"sold",C:"marked",D:"instructed"}, answer:"B", topic:"Participe Passé Adjectival", hint:"Le nombre de manuels vendus a baissé.", explanation:"Ici, 'sold' agit comme un adjectif réduit d'une proposition relative (textbooks which were sold).", example:"The cars made in Germany are very reliable."},
+            {id:110, q:"Traffic congestion is ___ than usual because of road construction, so it will take us at least an hour to get to the meeting.", options:{A:"badly",B:"bad",C:"worst",D:"worse"}, answer:"D", topic:"Comparatifs Irréguliers", hint:"Les embouteillages sont pires que d’habitude.", explanation:"L'adjectif 'bad' a un comparatif irrégulier : 'worse'. On utilise 'than' pour marquer la comparaison.", example:"The weather today is worse than yesterday."}
+        ];
+
+        const levels = [
+            { id: 1, title: "Niveau 1 : Fondations", range: [0, 10], color: "blue" },
+            { id: 2, title: "Niveau 2 : Maîtrise", range: [10, 20], color: "green" },
+            { id: 3, title: "Niveau 3 : Expert", range: [20, 30], color: "indigo" },
+            { id: 4, title: "Niveau 4 : Perfection", range: [30, 40], color: "purple" }
+        ];
+
+        let userProgress = JSON.parse(localStorage.getItem('toeic_premium_progress')) || { unlocked: 1, scores: {}, firstTime: true };
+        let currentLevel = null, currentQuestions = [], currentIndex = 0, score = 0, timer = null, timeLeft = 30, canAnswer = true;
+
+        const views = { 
+            landing: document.getElementById('view-landing'),
+            intro: document.getElementById('view-intro'),
+            menu: document.getElementById('view-menu'), 
+            quiz: document.getElementById('view-quiz'), 
+            results: document.getElementById('view-results'), 
+            teacher: document.getElementById('view-teacher') 
+        };
+
+        function saveProgress() { localStorage.setItem('toeic_premium_progress', JSON.stringify(userProgress)); }
+
+        function showView(viewName) {
+            Object.keys(views).forEach(key => views[key].classList.toggle('hidden', key !== viewName));
+            document.getElementById('main-header').classList.toggle('hidden', viewName === 'landing');
+            document.getElementById('header-stats').classList.toggle('hidden', viewName !== 'quiz');
+            if (viewName === 'menu') initMenu();
+            window.scrollTo(0,0);
+        }
+
+        function initMenu() {
+            const container = document.getElementById('levels-container');
+            container.innerHTML = '';
+            levels.forEach(level => {
+                const isLocked = level.id > userProgress.unlocked;
+                const bestScore = userProgress.scores[level.id] || 0;
+                const card = document.createElement('div');
+                card.className = `glass-card p-6 rounded-[2rem] flex justify-between items-center transition-all ${isLocked ? 'opacity-50 grayscale' : 'cursor-pointer hover:shadow-lg hover:border-blue-200'}`;
+                card.innerHTML = `
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center text-2xl">${isLocked ? '🔒' : '<div class="w-8 h-8 overflow-hidden"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/120684292/JZPZCNcoXAylLMIZ.png" class="mascot-img"></div>'}</div>
+                        <div>
+                            <h3 class="font-black text-blue-900">${level.title}</h3>
+                            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">${bestScore > 0 ? `Score: ${bestScore}/10` : '10 Questions • 30s'}</p>
+                        </div>
+                    </div>
+                    ${bestScore >= 7 ? '<div class="text-green-500 text-xl">✅</div>' : ''}
+                `;
+                if (!isLocked) card.onclick = () => startLevel(level);
+                container.appendChild(card);
+            });
+        }
+
+        /* ==========================================
+           SECTION GESTION DE LA MUSIQUE ET DES SONS
+           ========================================== */
+        let musicEnabled = true;
+        const bgMusic = document.getElementById('snd-bg');
+        bgMusic.volume = 0.2;
+
+        function toggleMusic() {
+            musicEnabled = !musicEnabled;
+            if (musicEnabled) {
+                bgMusic.play().catch(() => {});
+                document.getElementById('icon-music-on').classList.remove('hidden');
+                document.getElementById('icon-music-off').classList.add('hidden');
+            } else {
+                bgMusic.pause();
+                document.getElementById('icon-music-on').classList.add('hidden');
+                document.getElementById('icon-music-off').classList.remove('hidden');
+            }
+        }
+
+        document.getElementById('btn-music').onclick = toggleMusic;
+
+        function startLevel(level) {
+            currentLevel = level;
+            currentQuestions = questions.slice(0, 10);
+            currentIndex = 0; score = 0;
+            showView('quiz');
+            document.getElementById('level-title').textContent = level.title;
+            if (musicEnabled) bgMusic.play().catch(() => {});
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            const q = currentQuestions[currentIndex];
+            canAnswer = true; timeLeft = 30;
+            updateTimerDisplay(); startTimer();
+            document.getElementById('question-counter').textContent = `${currentIndex + 1}/${currentQuestions.length}`;
+            document.getElementById('progress-bar').style.width = `${(currentIndex / currentQuestions.length) * 100}%`;
+            document.getElementById('question-text').textContent = q.q;
+            const container = document.getElementById('options-container');
+            container.innerHTML = '';
+            document.getElementById('feedback-container').classList.add('hidden');
+            Object.entries(q.options).forEach(([key, value]) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-5 rounded-2xl border-2 border-blue-50 bg-white hover:border-blue-200 flex items-center gap-4 group transition-all";
+                btn.innerHTML = `<span class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center font-black text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all">${key}</span><span class="text-blue-900 font-bold">${value}</span>`;
+                btn.onclick = () => checkAnswer(key, btn);
+                container.appendChild(btn);
+            });
+        }
+
+        function startTimer() {
+            clearInterval(timer);
+            timer = setInterval(() => {
+                timeLeft--; updateTimerDisplay();
+                if (timeLeft <= 0) { clearInterval(timer); if (canAnswer) checkAnswer(null, null); }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const display = document.getElementById('timer-display');
+            display.textContent = `00:${timeLeft.toString().padStart(2, '0')}`;
+            display.parentElement.classList.toggle('bg-red-50', timeLeft <= 5);
+            display.classList.toggle('text-red-600', timeLeft <= 5);
+        }
+
+        function checkAnswer(choice, btn) {
+            if (!canAnswer) return;
+            canAnswer = false; clearInterval(timer);
+            const q = currentQuestions[currentIndex];
+            const isCorrect = choice === q.answer;
+            if (isCorrect) {
+                score++; document.getElementById('snd-correct').play().catch(()=>{});
+                if (btn) btn.classList.add('border-green-500', 'bg-green-50');
+            } else {
+                document.getElementById('snd-wrong').play().catch(()=>{});
+                if (btn) btn.classList.add('border-red-500', 'bg-red-50');
+                document.querySelectorAll('.group').forEach(b => {
+                    if (b.firstChild.textContent === q.answer) b.classList.add('border-green-500', 'bg-green-50');
+                });
+            }
+            showFeedback(isCorrect, q);
+        }
+
+        function showFeedback(isCorrect, q) {
+            const container = document.getElementById('feedback-container');
+            const card = document.getElementById('feedback-card');
+            const icon = document.getElementById('feedback-icon');
+            const title = document.getElementById('feedback-title');
+            container.classList.remove('hidden');
+            if (isCorrect) {
+                card.className = "rounded-3xl p-6 border-2 border-green-100 bg-green-50/30";
+                icon.className = "w-10 h-10 rounded-2xl flex items-center justify-center bg-green-500 text-white text-xl shadow-lg shadow-green-100";
+                icon.innerHTML = "✓";
+                title.className = "font-black text-green-800 text-lg";
+                title.textContent = "Parfait !";
+            } else {
+                card.className = "rounded-3xl p-6 border-2 border-red-100 bg-red-50/30";
+                icon.className = "w-10 h-10 rounded-2xl flex items-center justify-center bg-red-500 text-white text-xl shadow-lg shadow-red-100";
+                icon.innerHTML = "✕";
+                title.className = "font-black text-red-800 text-lg";
+                title.textContent = timeLeft <= 0 ? "Temps écoulé !" : "Pas tout à fait...";
+            }
+            document.getElementById('feedback-explanation').textContent = q.explanation;
+            document.getElementById('feedback-example').textContent = q.example;
+            window.scrollTo(0, document.body.scrollHeight);
+        }
+
+        document.getElementById('btn-next').onclick = () => {
+            currentIndex++;
+            if (currentIndex < currentQuestions.length) loadQuestion();
+            else showResults();
+        };
+
+        function showResults() {
+            showView('results');
+            document.getElementById('result-score').textContent = `${score}/${currentQuestions.length}`;
+            if (score >= 7) {
+                if (currentLevel.id === userProgress.unlocked && userProgress.unlocked < levels.length) userProgress.unlocked++;
+                document.getElementById('result-text').textContent = "Incroyable ! Ton niveau d'anglais progresse à vue d'œil. Prêt pour le niveau suivant ?";
+            } else {
+                document.getElementById('result-text').textContent = "C'est un bon entraînement. Relis bien les explications pédagogiques pour atteindre les 10/10 !";
+            }
+            userProgress.scores[currentLevel.id] = Math.max(score, userProgress.scores[currentLevel.id] || 0);
+            saveProgress();
+        }
+
+        function initTeacherMode() {
+            const list = document.getElementById('teacher-list');
+            list.innerHTML = '';
+            questions.forEach(q => {
+                const item = document.createElement('div');
+                item.className = "bg-white rounded-3xl p-6 border border-blue-50 shadow-sm space-y-4";
+                item.innerHTML = `
+                    <div class="flex justify-between items-center"><span class="text-[10px] font-black text-blue-600 uppercase tracking-widest">Notion: ${q.topic}</span><span class="text-xs font-bold text-slate-300">#${q.id}</span></div>
+                    <p class="font-bold text-blue-900">${q.q}</p>
+                    <div class="bg-blue-50/50 rounded-2xl p-4"><p class="text-xs text-slate-700 leading-relaxed"><strong>Règle :</strong> ${q.explanation}</p></div>
+                    <div class="bg-green-50 rounded-2xl p-4 border border-green-100"><p class="text-xs text-green-800 italic"><strong>Exemple :</strong> ${q.example}</p></div>
+                `;
+                list.appendChild(item);
+            });
+        }
+
+        // Navigation
+        document.getElementById('btn-go-intro').onclick = () => showView('intro');
+        document.getElementById('btn-start-app').onclick = () => {
+            userProgress.firstTime = false;
+            saveProgress();
+            showView('menu');
+        };
+        document.getElementById('btn-home').onclick = () => showView('menu');
+        document.getElementById('btn-back-menu').onclick = () => showView('menu');
+        document.getElementById('btn-retry').onclick = () => startLevel(currentLevel);
+        document.getElementById('btn-teacher-mode').onclick = () => { initTeacherMode(); showView('teacher'); };
+        document.getElementById('btn-close-teacher').onclick = () => showView('menu');
+
+        // Toujours afficher la landing page au début
+        showView('landing');
+
+    </script>
+</body>
+</html>
